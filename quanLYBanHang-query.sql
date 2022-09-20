@@ -20,3 +20,7 @@ select *
 from customer left join orders on customer.cID=orders.cid
 where orders.oID is null
 group by customer.cname;
+select O.oID, O.odate,sum(P.pprice*OD.odqty ) as'total price'
+from orders O join orderdetail OD on O.oid=OD.oid
+join product P on P.pid=OD.pid
+group by od.oid;
